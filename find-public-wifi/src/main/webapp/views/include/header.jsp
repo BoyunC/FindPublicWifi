@@ -12,8 +12,8 @@
             <h1> 와이파이 정보 구하기 </h1>
             <nav>
                 <ul>
-                    <li><a href="#">홈</a></li>
-                    <li><a href="">위치 히스토리 목록</a></li>
+                    <li><a href="http://localhost:8080">홈</a></li>
+                    <li><a href="http://localhost:8080/views/location_history.jsp">위치 히스토리 목록</a></li>
                     <li><a href="">Open API 와이파이 정보 가져오기</a></li>
                 </ul>
             </nav>

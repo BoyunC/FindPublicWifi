@@ -2,10 +2,12 @@
          pageEncoding="UTF-8" %>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
 <body>
-    <%@ include file="./include/header.jsp"%>
+    <%@ include file="/views/include/header.jsp"%>
 
     <div class="container">
         <table>
