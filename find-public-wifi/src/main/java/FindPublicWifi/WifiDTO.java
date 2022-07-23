@@ -1,3 +1,10 @@
+package FindPublicWifi;
+
+import lombok.Getter;
+
+import java.time.LocalDateTime;
+
+@Getter
 public class WifiDTO {
     private String x_swifi_mgr_no;      // 관리번호
     private String x_swifi_wrdofc;      // 자치구
@@ -11,10 +18,10 @@ public class WifiDTO {
     private String x_swifi_cmcwr;       // 망종류
     private String x_swifi_cnstc_year;  // 설치년도
     private String x_swifi_inout_door;  // 실내외구분
-    private String x_swifi_remars3;     //wifi 접속환경
+    private String x_swifi_remars3;     // wifi 접속환경
     private String lat;                 // x좌표
     private String lnt;                 // y좌표
-    private String work_dttm;           // 작업일자
+    private LocalDateTime work_dttm;           // 작업일자
 
     public String getX_swifi_mgr_no() {
         return x_swifi_mgr_no;
@@ -136,11 +143,11 @@ public class WifiDTO {
         this.lnt = lnt;
     }
 
-    public String getWork_dttm() {
+    public LocalDateTime getWork_dttm() {
         return work_dttm;
     }
 
-    public void setWork_dttm(String work_dttm) {
+    public void setWork_dttm(LocalDateTime work_dttm) {
         this.work_dttm = work_dttm;
     }
 }

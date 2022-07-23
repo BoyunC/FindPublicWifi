@@ -1,3 +1,5 @@
+package FindPublicWifi;
+
 public class HistoryDTO {
 
     private int id;             // id
