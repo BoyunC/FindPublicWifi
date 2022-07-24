@@ -58,7 +58,6 @@ public class WifiService {
             }
 
             cnt = preparedStatement.executeBatch().length;
-            System.out.println("result = " + cnt);
             connection.commit();
 
         } catch (SQLException e) {

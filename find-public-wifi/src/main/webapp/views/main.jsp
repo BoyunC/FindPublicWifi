@@ -6,22 +6,48 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
+    <script>
+        let $lat = null;
+        let $lnt = null;
+
+        window.onload = () => {
+            $lat = document.getElementById("lat");
+            $lnt = document.getElementById("lnt");
+        }
+
+        const getCurrentPosition = () => {
+
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(function (pos) {
+                    $lat.value = pos.coords.latitude;
+                    $lnt.value = pos.coords.longitude;
+                })
+            } else {
+                alert("위치 정보를 확인할 수 없으니 직접 입력해주시기 바랍니다.")
+            }
+        }
+    </script>
+
     <div class="container">
+        <%
+            String lat = request.getParameter("lat") == null ? "0.0" : request.getParameter("lat");
+            String lnt = request.getParameter("lnt") == null ? "0.0" : request.getParameter("lnt");
+        %>
         <div class="input">
             <ul>
                 <li>
                     <span>LAT: </span>
-                    <input type="text" placeholder="0.0" required>
+                    <input type="text" id="lat" value="<%=lat%>">
                 </li>
                 <li>
                     <span>LNT: </span>
-                    <input type="text" placeholder="0.0" required>
+                    <input type="text" id="lnt" value="<%=lnt%>">
                 </li>
                 <li>
-                    <button><span> 내 위치 가져오기 </span></button>
+                    <button onclick="getCurrentPosition()"><span> 내 위치 가져오기 </span></button>
                 </li>
                 <li>
-                    <button><span> 근처 WIFI 정보 보기 </span></button>
+                    <button onclick=""><span> 근처 WIFI 정보 보기 </span></button>
                 </li>
             </ul>
         </div>
