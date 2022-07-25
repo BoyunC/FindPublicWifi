@@ -44,7 +44,9 @@ public class APIService {
 
                     if (responseBody != null) {
                         JsonElement jsonElement = JsonParser.parseString(responseBody.string());
-                        JsonArray jsonArray = jsonElement.getAsJsonObject().get("TbPublicWifiInfo").getAsJsonObject().get("row").getAsJsonArray();
+                        JsonArray jsonArray = jsonElement.getAsJsonObject().get("TbPublicWifiInfo")
+                                                         .getAsJsonObject().get("row")
+                                                         .getAsJsonArray();
 
                         cnt += PublicWifiInsert(jsonArray);
                     } else {
@@ -79,8 +81,8 @@ public class APIService {
                     JsonElement jsonElement = JsonParser.parseString(responseBody.string());
 
                     cnt =  jsonElement.getAsJsonObject().get("TbPublicWifiInfo")
-                                        .getAsJsonObject().get("list_total_count")
-                                        .getAsInt();
+                                      .getAsJsonObject().get("list_total_count")
+                                      .getAsInt();
 
                     System.out.println(cnt);
                 }

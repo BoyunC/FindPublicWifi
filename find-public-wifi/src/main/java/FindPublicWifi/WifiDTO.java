@@ -2,10 +2,13 @@ package FindPublicWifi;
 
 import lombok.Getter;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Getter
 public class WifiDTO {
+
+    private String distance;            // 거리
     private String x_swifi_mgr_no;      // 관리번호
     private String x_swifi_wrdofc;      // 자치구
     private String x_swifi_main_nm;     // 와이파이명
@@ -21,7 +24,39 @@ public class WifiDTO {
     private String x_swifi_remars3;     // wifi 접속환경
     private String lat;                 // x좌표
     private String lnt;                 // y좌표
-    private LocalDateTime work_dttm;           // 작업일자
+    private LocalDateTime work_dttm;    // 작업일자
+
+    public WifiDTO(String distance, String x_swifi_mgr_no, String x_swifi_wrdofc, String x_swifi_main_nm, String x_swifi_adres1, String x_swifi_adres2, String x_swifi_instl_floor, String x_swifi_instl_ty, String x_swifi_instl_mby, String x_swifi_svc_se, String x_swifi_cmcwr, String x_swifi_cnstc_year, String x_swifi_inout_door, String x_swifi_remars3, String lat, String lnt, LocalDateTime work_dttm) {
+        this.distance = distance;
+        this.x_swifi_mgr_no = x_swifi_mgr_no;
+        this.x_swifi_wrdofc = x_swifi_wrdofc;
+        this.x_swifi_main_nm = x_swifi_main_nm;
+        this.x_swifi_adres1 = x_swifi_adres1;
+        this.x_swifi_adres2 = x_swifi_adres2;
+        this.x_swifi_instl_floor = x_swifi_instl_floor;
+        this.x_swifi_instl_ty = x_swifi_instl_ty;
+        this.x_swifi_instl_mby = x_swifi_instl_mby;
+        this.x_swifi_svc_se = x_swifi_svc_se;
+        this.x_swifi_cmcwr = x_swifi_cmcwr;
+        this.x_swifi_cnstc_year = x_swifi_cnstc_year;
+        this.x_swifi_inout_door = x_swifi_inout_door;
+        this.x_swifi_remars3 = x_swifi_remars3;
+        this.lat = lat;
+        this.lnt = lnt;
+        this.work_dttm = work_dttm;
+    }
+
+    public WifiDTO() {
+
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
 
     public String getX_swifi_mgr_no() {
         return x_swifi_mgr_no;

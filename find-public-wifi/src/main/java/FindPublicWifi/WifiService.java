@@ -4,17 +4,23 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class WifiService {
+
+    public static Connection connection;
+    public static PreparedStatement preparedStatement;
+    public static ResultSet resultSet;
 
     public WifiService() {
 
     }
     public static int PublicWifiInsert(JsonArray jsonArray) {
 
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        connection = null;
+        preparedStatement = null;
+        resultSet = null;
         int cnt = 0;
 
 
@@ -67,5 +73,70 @@ public class WifiService {
         }
 
         return cnt;
+    }
+
+
+    public List<WifiDTO> getNearestWifiList(String vlat, String vlnt) {
+
+        connection = null;
+        preparedStatement = null;
+        resultSet = null;
+
+        List<WifiDTO> wifiList = new LinkedList<>();
+
+        try {
+
+            connection = DBConnect.connectDB();
+
+            String selectSql = " select * ,"
+                    + " round ("
+                    + " ( 6371 "
+                    + " * acos ( cos ( radians(" + vlat + ") ) "
+                    + " * cos ( radians( lnt ) ) "
+                    + " * cos ( radians( lat ) - radians(" + vlnt + ") ) "
+                    + " + sin ( radians(" + vlat + ") ) "
+                    + " * sin ( radians( lnt ) ) )"
+                    + " ), 4) as distance "
+                    + " from public_wifi "
+                    + " having distance <= 1 "
+                    + " order by distance; ";
+
+
+            preparedStatement = connection.prepareStatement(selectSql);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                WifiDTO wifiDTO = new WifiDTO(
+                        resultSet.getString("distance")
+                        , resultSet.getString("x_swifi_mgr_no")
+                        , resultSet.getString("x_swifi_wrdofc")
+                        , resultSet.getString("x_swifi_main_nm")
+                        , resultSet.getString("x_swifi_adres1")
+                        , resultSet.getString("x_swifi_adres1")
+                        , resultSet.getString("x_swifi_instl_floor")
+                        , resultSet.getString("x_swifi_instl_ty")
+                        , resultSet.getString("x_swifi_instl_mby")
+                        , resultSet.getString("x_swifi_svc_se")
+                        , resultSet.getString("x_swifi_cmcwr")
+                        , resultSet.getString("x_swifi_cnstc_year")
+                        , resultSet.getString("x_swifi_inout_door")
+                        , resultSet.getString("x_swifi_remars3")
+                        , resultSet.getString("lat")
+                        , resultSet.getString("lnt")
+                        , resultSet.getTimestamp("work_dttm").toLocalDateTime()
+                );
+
+
+                wifiList.add(wifiDTO);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnect.close(connection, preparedStatement, resultSet);
+        }
+
+
+        return wifiList;
     }
 }

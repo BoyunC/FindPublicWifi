@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>와이파이 API로부터 데이터 받아오기</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
     <%
