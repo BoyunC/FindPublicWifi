@@ -3,11 +3,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
     <%@ include file="/views/include/header.jsp"%>
-
     <div class="container">
         <table>
             <thead>
@@ -26,6 +25,5 @@
             </tbody>
         </table>
     </div>
-
 </body>
 </html>

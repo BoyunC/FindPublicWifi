@@ -7,6 +7,8 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
+import static FindPublicWifi.HistoryService.searchHistoryInsert;
+
 public class WifiService {
 
     public static Connection connection;
@@ -136,6 +138,7 @@ public class WifiService {
             DBConnect.close(connection, preparedStatement, resultSet);
         }
 
+        searchHistoryInsert(vlat, vlnt);
 
         return wifiList;
     }
