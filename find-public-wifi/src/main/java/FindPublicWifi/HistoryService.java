@@ -1,9 +1,8 @@
 package FindPublicWifi;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 public class HistoryService {
 
@@ -16,8 +15,6 @@ public class HistoryService {
         connection = null;
         preparedStatement = null;
         resultSet = null;
-        int cnt = 0;
-
 
         try {
 
@@ -41,5 +38,49 @@ public class HistoryService {
             DBConnect.close(connection, preparedStatement, resultSet);
         }
 
+    }
+
+
+    public List<HistoryDTO> getSearchHistoryList() {
+
+        connection = null;
+        preparedStatement = null;
+        resultSet = null;
+
+        List<HistoryDTO> historyList = new LinkedList<>();
+
+        try {
+
+            connection = DBConnect.connectDB();
+
+            String historySelectSQL = " select * "
+                    + " from search_history "
+                    + " where 'delete' = false "
+                    + " order by id desc; ";
+
+
+            preparedStatement = connection.prepareStatement(historySelectSQL);
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                HistoryDTO historyDTO = new HistoryDTO(
+                        resultSet.getInt("id")
+                        , resultSet.getString("lat")
+                        , resultSet.getString("lnt")
+                        , resultSet.getTimestamp("search_dttm").toLocalDateTime()
+                );
+
+
+                historyList.add(historyDTO);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnect.close(connection, preparedStatement, resultSet);
+        }
+
+
+        return historyList;
     }
 }

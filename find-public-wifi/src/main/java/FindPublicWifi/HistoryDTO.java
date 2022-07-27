@@ -4,10 +4,20 @@ import java.time.LocalDateTime;
 
 public class HistoryDTO {
 
-    private int id;             // id
-    private String lat;         // lat
-    private String lnt;         // lnt
-    private LocalDateTime search_dttm; // 검색일자
+    private int id;                     // id
+    private String lat;                 // lat
+    private String lnt;                 // lnt
+    private LocalDateTime search_dttm;  // 검색일자
+
+    public HistoryDTO() {
+    }
+
+    public HistoryDTO(int id, String lat, String lnt, LocalDateTime search_dttm) {
+        this.id = id;
+        this.lat = lat;
+        this.lnt = lnt;
+        this.search_dttm = search_dttm;
+    }
 
     public int getId() {
         return id;
