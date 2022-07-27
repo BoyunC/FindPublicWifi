@@ -5,6 +5,7 @@
          pageEncoding="UTF-8" %>
 <html>
 <head>
+    <title>홈</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>

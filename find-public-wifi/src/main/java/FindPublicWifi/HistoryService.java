@@ -55,7 +55,7 @@ public class HistoryService {
 
             String historySelectSQL = " select * "
                     + " from search_history "
-                    + " where 'delete' = false "
+                    + " where search_history.delete = false "
                     + " order by id desc; ";
 
 
@@ -82,5 +82,31 @@ public class HistoryService {
 
 
         return historyList;
+    }
+
+    public static void deleteSearchHistory(int id) {
+
+        connection = null;
+        preparedStatement = null;
+        resultSet = null;
+
+        try {
+
+            connection = DBConnect.connectDB();
+
+            String historyDeleteSQL = " update search_history "
+                    + " set search_history.delete = true "
+                    + " where search_history.id = " + id + "; ";
+
+
+            preparedStatement = connection.prepareStatement(historyDeleteSQL);
+            preparedStatement.executeQuery();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBConnect.close(connection, preparedStatement, resultSet);
+        }
+
     }
 }
