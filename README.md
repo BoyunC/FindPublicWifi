@@ -5,7 +5,7 @@
 <br>
 
 - 프로젝트 작동 순서 및 기능 
-  - 서울시 공공 와이파이 서비스 위치 정보(http://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do)를 받아와 데이터베이스 public_wifi 테이블에 저장 
+  - 서울시 공공 와이파이 서비스 위치 정보(http://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do) 를 받아와 데이터베이스 public_wifi 테이블에 저장 
 
   - '내 위치 가져오기' 버튼 클릭시 'geolocation'을 이용하여 사용자의 현재 위치를 가져옴.
   - 또는 직접 좌표 입력이 가능해 특정 위치 주변의 공공 와이파이를 찾을 수 있음.
