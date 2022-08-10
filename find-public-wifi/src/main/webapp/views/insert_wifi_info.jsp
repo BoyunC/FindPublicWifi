@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ page import="FindPublicWifi.APIService" %>
+<%@ page import="service.APIService" %>
 <html>
 <head>
     <title>와이파이 API로부터 데이터 받아오기</title>

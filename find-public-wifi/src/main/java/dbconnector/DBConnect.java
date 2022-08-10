@@ -1,4 +1,4 @@
-package FindPublicWifi;
+package dbconnector;
 import java.sql.*;
 
 

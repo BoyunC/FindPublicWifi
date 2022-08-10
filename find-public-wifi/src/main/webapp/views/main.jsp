@@ -1,6 +1,6 @@
-<%@ page import="FindPublicWifi.WifiDTO" %>
+<%@ page import="dto.WifiDTO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="FindPublicWifi.WifiService" %>
+<%@ page import="service.WifiService" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <html>
@@ -71,22 +71,22 @@
                             for (WifiDTO wifiDTO : wifiList) {
                                 out.write("<tr>");
                                 out.write("<td>" + wifiDTO.getDistance() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_mgr_no() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_wrdofc() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_main_nm() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_adres1() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_adres2() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_instl_floor() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_instl_ty() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_instl_mby() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_svc_se() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_cmcwr() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_cnstc_year() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_inout_door() + "</td>");
-                                out.write("<td>" + wifiDTO.getX_swifi_remars3() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiMgrNo() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiWrdofc() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiMainNm() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiAdres1() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiAdres2() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiInstlFloor() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiInstlTy() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiInstlMby() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiSvcSe() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiCmcwr() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiCnstcYear() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiInoutDoor() + "</td>");
+                                out.write("<td>" + wifiDTO.getxSwifiRemars3() + "</td>");
                                 out.write("<td>" + wifiDTO.getLat() + "</td>");
                                 out.write("<td>" + wifiDTO.getLnt() + "</td>");
-                                out.write("<td>" + wifiDTO.getWork_dttm() + "</td>");
+                                out.write("<td>" + wifiDTO.getWorkDttm() + "</td>");
                                 out.write("</tr>");
                             }
                         }

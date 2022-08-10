@@ -1,4 +1,7 @@
-package FindPublicWifi;
+package service;
+
+import dbconnector.DBConnect;
+import dto.HistoryDTO;
 
 import java.sql.*;
 import java.util.LinkedList;

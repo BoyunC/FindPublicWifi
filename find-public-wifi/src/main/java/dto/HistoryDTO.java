@@ -1,4 +1,4 @@
-package FindPublicWifi;
+package dto;
 
 import java.time.LocalDateTime;
 
@@ -7,16 +7,16 @@ public class HistoryDTO {
     private int id;                     // id
     private String lat;                 // lat
     private String lnt;                 // lnt
-    private LocalDateTime search_dttm;  // 검색일자
+    private LocalDateTime searchDttm;   // 검색일자
 
     public HistoryDTO() {
     }
 
-    public HistoryDTO(int id, String lat, String lnt, LocalDateTime search_dttm) {
+    public HistoryDTO(int id, String lat, String lnt, LocalDateTime searchDttm) {
         this.id = id;
         this.lat = lat;
         this.lnt = lnt;
-        this.search_dttm = search_dttm;
+        this.searchDttm = searchDttm;
     }
 
     public int getId() {
@@ -38,11 +38,11 @@ public class HistoryDTO {
         this.lnt = lnt;
     }
 
-    public LocalDateTime getSearch_dttm() {
-        return search_dttm;
+    public LocalDateTime getSearchDttm() {
+        return searchDttm;
     }
 
-    public void setSearch_dttm(LocalDateTime search_dttm) {
-        this.search_dttm = search_dttm;
+    public void setSearchDttm(LocalDateTime searchDttm) {
+        this.searchDttm = searchDttm;
     }
 }

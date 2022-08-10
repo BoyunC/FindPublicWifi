@@ -1,13 +1,15 @@
-package FindPublicWifi;
+package service;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import dbconnector.DBConnect;
+import dto.WifiDTO;
 
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-import static FindPublicWifi.HistoryService.searchHistoryInsert;
+import static service.HistoryService.searchHistoryInsert;
 
 public class WifiService {
 

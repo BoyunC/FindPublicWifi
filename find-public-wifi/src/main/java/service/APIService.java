@@ -1,4 +1,4 @@
-package FindPublicWifi;
+package service;
 
 
 import com.google.gson.JsonArray;
@@ -13,7 +13,7 @@ import okhttp3.ResponseBody;
 import java.io.IOException;
 import java.net.URL;
 
-import static FindPublicWifi.WifiService.PublicWifiInsert;
+import static service.WifiService.PublicWifiInsert;
 
 
 public class APIService {

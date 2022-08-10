@@ -1,5 +1,5 @@
-<%@ page import="FindPublicWifi.HistoryDTO" %>
-<%@ page import="FindPublicWifi.HistoryService" %>
+<%@ page import="dto.HistoryDTO" %>
+<%@ page import="service.HistoryService" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
@@ -44,7 +44,7 @@
                     out.write("<td>" + cnt-- + "</td>");
                     out.write("<td>" + historyDTO.getLat() + "</td>");
                     out.write("<td>" + historyDTO.getLnt() + "</td>");
-                    out.write("<td>" + historyDTO.getSearch_dttm() + "</td>");
+                    out.write("<td>" + historyDTO.getSearchDttm() + "</td>");
                     out.write("<td>  <button id=" + historyDTO.getId() + " onclick=\"deleteHistoryBtn(this)\" ><span> 삭제 </span></button> </td>");
                     out.write("</tr>");
                 }
